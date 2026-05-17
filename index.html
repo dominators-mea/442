@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID iOS | Free Fire Elite Guild</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+.glitch-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 0%, #1a0000 0%, #0a0a0a 50%);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.logo {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    border: 3px solid #ff0033;
+    box-shadow: 0 0 40px #ff0033, 0 0 20px #ff0033 inset;
+    margin-bottom: 25px;
+    animation: pulse 2s infinite;
+    background: rgba(255, 0, 51, 0.08);
+    object-fit: cover;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 40px #ff0033, 0 0 20px #ff0033 inset; }
+    50% { box-shadow: 0 0 60px #ff0033, 0 0 90px #ff0033, 0 0 30px #ff0033 inset; }
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em;
+    font-weight: 900;
+    color: #ff0033;
+    text-shadow: 0 0 20px #ff0033, 0 0 40px #ff0033;
+    letter-spacing: 4px;
+}
+
+.tagline {
+    font-size: 1.3em;
+    color: #888;
+    margin: 15px 0 40px;
+    letter-spacing: 2px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.card {
+    background: rgba(20, 0, 0, 0.6);
+    border: 1px solid #ff0033;
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.5);
+}
+
+.card h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff0033;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 0, 51, 0.2);
+}
+
+.stat-row:last-child { border-bottom: none; }
+
+.stat-label { color: #888; }
+.stat-value { color: #ff0033; font-weight: 700; }
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 0, 51, 0.15);
+    color: #ccc;
+}
+
+.list li:before {
+    content: "▶";
+    color: #ff0033;
+    margin-right: 10px;
+}
+
+.btn-group {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 45px;
+    margin: 10px;
+    background: transparent;
+    border: 2px solid #ff0033;
+    color: #ff0033;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.btn:hover {
+    background: #ff0033;
+    color: #000;
+    box-shadow: 0 0 35px #ff0033;
+    transform: translateY(-3px);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    color: #555;
+    border-top: 1px solid rgba(255, 0, 51, 0.2);
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status.open { background: rgba(0, 255, 0, 0.2); color: #00ff00; }
+.status.closed { background: rgba(255, 0, 0, 0.2); color: #ff0000; }
+</style>
+</head>
+<body>
+<div class="glitch-bg"></div>
+
+<div class="container">
+    <div class="hero">
+       <img id="logo" class="logo" src="" alt="Guild Logo"> 
+        <h1 id="guild-name">Loading...</h1>
+        <p class="tagline">ELITE FREE FIRE GUILD | DOMINATING BR & CS</p>
+        <span id="status" class="status">Loading</span>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h2>Guild Stats</h2>
+            <div class="stat-row">
+                <span class="stat-label">Guild ID</span>
+                <span class="stat-value" id="guild-id">-</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Level</span>
+                <span class="stat-value" id="guild-level">-</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Members</span>
+                <span class="stat-value" id="guild-members">-</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Region</span>
+                <span class="stat-value">Nigeria</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Requirements</h2>
+            <ul class="list">
+                <li>Account Level 60+</li>
+                <li>Heroic BR or CS Rank</li>
+                <li>Active Daily & Responsive</li>
+                <li>Mic Required for Ranked Push</li>
+                <li>No Toxicity, Team Player Only</li>
+                <li>KD 1.5+ Preferred</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>What We Offer</h2>
+            <ul class="list">
+                <li>Daily Ranked Push Squads</li>
+                <li>Custom Room Tournaments Weekly</li>
+                <li>Training for Aim & Movement</li>
+                <li>Guild War Strategy Sessions</li>
+                <li>Active WhatsApp Community</li>
+                <li>Zero Drama, Pure Gaming</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Guild Rules</h2>
+            <ul class="list">
+                <li>Respect All Members</li>
+                <li>No Begging for Diamonds</li>
+                <li>Join Discord Voice During Push</li>
+                <li>Report 3 Days Inactive</li>
+                <li>Help New Members Grow</li>
+                <li>Win or Learn Together</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Game Modes We Play</h2>
+            <ul class="list">
+                <li>Battle Royale Ranked</li>
+                <li>Clash Squad Ranked</li>
+                <li>Custom Room Scrims</li>
+                <li>Guild Wars Every Week</li>
+                <li>1v4 & 2v4 Challenges</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Achievements</h2>
+            <ul class="list">
+                <li>Top 100 Guild Server Wide</li>
+                <li>50+ Heroic Players</li>
+                <li>Weekly Guild War Wins</li>
+                <li>500K+ Guild Glory</li>
+                <li>Clean Record, No Bans</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <a href="YOUR_WHATSAPP_LINK" class="btn">Join WhatsApp</a>
+        <a href="https://ff.garena.com/en/guild/?id=YOUR_GUILD_ID" class="btn">Search In Game</a>
+    </div>
+
+<div class="footer">
+    <p>© 2026 VOID iOS Guild | Recruitment Open | Not Affiliated with Garena</p>
+    <p style="font-size: 12px; margin-top: 10px;">Edit data.json to update info</p>
+</div>
+</div>
+
+<script>
+async function loadGuildData() {
+    try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+        
+        document.getElementById('guild-name').textContent = data.name;
+        document.getElementById('guild-id').textContent = `ID: ${data.id}`;
+        document.getElementById('guild-level').textContent = `Level: ${data.level}`;
+        document.getElementById('guild-members').textContent = `Members: ${data.members}`;
+        
+        if (data.logo) {
+            document.getElementById('logo').src = data.logo;
+        }
+        
+        const statusEl = document.getElementById('status');
+        statusEl.textContent = data.status;
+        statusEl.className = `status ${data.status.toLowerCase()}`;
+        
+    } catch (error) {
+        console.log('Error loading data.json:', error);
+        document.getElementById('guild-name').textContent = "VOID iOS";
+    }
+}
+
+loadGuildData();
+</script>
+</body>
+</html>

@@ -110,6 +110,19 @@ h1 {
 .stat-label { color: #888; }
 .stat-value { color: #ff0033; font-weight: 700; }
 
+/* Added for copy effect */
+.copyable {
+    cursor: pointer;
+    transition: 0.2s;
+}
+.copyable:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff0033;
+}
+.copyable.copied {
+    color: #00ff00;
+}
+
 .list {
     list-style: none;
     padding: 0;
@@ -191,7 +204,7 @@ h1 {
             <h2>Guild Stats</h2>
             <div class="stat-row">
                 <span class="stat-label">Guild ID</span>
-                <span class="stat-value" id="guild-id">-</span>
+                <span class="stat-value copyable" id="guild-id" title="Tap to copy">-</span>
             </div>
             <div class="stat-row">
                 <span class="stat-label">Level</span>
@@ -284,9 +297,9 @@ async function loadGuildData() {
         const data = await response.json();
         
         document.getElementById('guild-name').textContent = data.name;
-        document.getElementById('guild-id').textContent = `ID: ${data.id}`;
-        document.getElementById('guild-level').textContent = `Level: ${data.level}`;
-        document.getElementById('guild-members').textContent = `Members: ${data.members}`;
+        document.getElementById('guild-id').textContent = data.id; // removed "ID: " so it copies clean number
+        document.getElementById('guild-level').textContent = data.level;
+        document.getElementById('guild-members').textContent = data.members;
         
         if (data.logo) {
             document.getElementById('logo').src = data.logo;
@@ -304,6 +317,22 @@ async function loadGuildData() {
         document.getElementById('guild-name').textContent = "VOID iOS";
     }
 }
+
+// Copy to clipboard function
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('copyable')) {
+        const text = e.target.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            e.target.classList.add('copied');
+            const originalText = e.target.textContent;
+            e.target.textContent = 'Copied!';
+            setTimeout(() => {
+                e.target.textContent = originalText;
+                e.target.classList.remove('copied');
+            }, 1500);
+        });
+    }
+});
 
 loadGuildData();
 </script>

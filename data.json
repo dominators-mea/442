@@ -1,10 +1,16 @@
-{
+
   "name": "VOID iOS",
-  "id": "3097983411",
-  "level": "1",
+  "id": "123456789",
+  "level": 3,
   "members": "45/50",
-  "logo":https://imgur.com/a/zG1xD6f
-  "status": "online",
-  "whatsapp_link": "https://chat.whatsapp.com/GjtocJT6KkaFQL1KAeFdmn?mode=gi_t",
-  "guild_link": "https://ff.garena.com/en/guild/?id=3097983411"
-}
+  "status": "Open",
+  "logo":"https://i.imgur.com/fYuWfDD_d.webp?maxwidth=760&fidelity=grand",
+  "about": "Free Fire is a fast-paced battle royale game by Garena. 50 players drop onto an island, loot weapons, and fight till one squad survives. Matches last 10-15 minutes, perfect for mobile gamers. VOID iOS is built for players who want to push rank, win guild wars, and improve aim + movement together. No toxicity, just skill and teamwork.",
+  "contact": {
+    "whatsapp": "https://chat.whatsapp.com/xxxxx",
+    "discord": "discord.gg/voidios",
+    "in_game": "Search Guild ID 123456789 in Free Fire"
+  },
+  "whatsapp_link": "https://chat.whatsapp.com/xxxxx",
+  "share_link": "https://ff.garena.com/en/guild/?id=123456789",
+  "contact_email": "yourgmail@gmail.com"
